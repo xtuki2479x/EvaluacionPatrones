@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Chat | Mi Espacio Esotérico
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="../css/global.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chat.css"
+  >
+</head>
+
+<body>
+
+  <nav class="navbar">
+
+    <a
+      class="navbar__logo"
+      href="../Principal/principal.html"
+    >
+      Mi Espacio
+      <span>Esotérico</span>
+    </a>
+
+    <div class="navbar__links">
+      <a href="../Principal/principal.html">
+        Inicio
+      </a>
+
+      <a
+        class="activo"
+        href="chat.html"
+      >
+        Chat
+      </a>
+
+      <a href="../Carrito/carrito.html">
+        Carrito
+      </a>
+    </div>
+
+    <div class="navbar__acciones">
+      <a
+        class="btn btn--icono btn--secundario"
+        href="../Carrito/carrito.html"
+        aria-label="Carrito"
+        title="Carrito"
+      >
+        🛒
+
+        <span
+          class="contador hidden"
+          data-cart-count
+        ></span>
+      </a>
+    </div>
+
+  </nav>
+
+
+  <main class="contenedor pagina-chat">
+
+    <header class="chat-header">
+
+      <div>
+        <p class="texto-suave">
+          Mensajería
+        </p>
+
+        <h1 class="titulo">
+          Conversación con la consejera
+        </h1>
+      </div>
+
+      <div class="estado-consejera">
+        <span class="estado-consejera__punto"></span>
+
+        <span>
+          Disponible para recibir mensajes
+        </span>
+      </div>
+
+    </header>
+
+
+    <!-- AVISO SI NO EXISTE UNA SESIÓN -->
+
+    <section
+      id="aviso-sesion"
+      class="estado-vacio hidden"
+    >
+      <h2>
+        Debes iniciar sesión
+      </h2>
+
+      <p>
+        Inicia sesión desde la página principal
+        para enviar mensajes a la consejera.
+      </p>
+
+      <a
+        class="btn btn--primario"
+        href="../Principal/principal.html"
+      >
+        Ir a iniciar sesión
+      </a>
+    </section>
+
+
+    <!-- CHAT DISPONIBLE PARA EL USUARIO -->
+
+    <section
+      id="chat-activo"
+      class="chat-caja hidden"
+      aria-label="Conversación"
+    >
+
+      <div
+        id="lista-mensajes"
+        class="lista-mensajes"
+        aria-live="polite"
+      >
+        <!-- Los mensajes aparecerán aquí -->
+      </div>
+
+
+      <form
+        id="form-mensaje"
+        class="form-mensaje"
+      >
+
+        <label
+          class="hidden"
+          for="mensaje"
+        >
+          Escribe tu mensaje
+        </label>
+
+        <textarea
+          id="mensaje"
+          maxlength="500"
+          required
+          placeholder="Escribe tu consulta..."
+        ></textarea>
+
+        <div class="form-mensaje__acciones">
+
+          <span id="contador-caracteres">
+            0 / 500
+          </span>
+
+          <button
+            class="btn btn--primario"
+            type="submit"
+          >
+            Enviar mensaje
+          </button>
+
+        </div>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <div id="toast-container"></div>
+
+
+  <script src="../js/patrones.js"></script>
+  <script src="chat.js"></script>
+
+</body>
+</html>
