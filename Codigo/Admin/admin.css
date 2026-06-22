@@ -1,0 +1,578 @@
+/* ========================================
+   PÁGINA ADMINISTRATIVA
+======================================== */
+
+.admin {
+  padding-top: 38px;
+  padding-bottom: 50px;
+}
+
+.admin-vista {
+  min-height: 500px;
+}
+
+.admin-encabezado {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-bottom: 24px;
+}
+
+
+/* ========================================
+   PESTAÑAS DE NAVEGACIÓN
+======================================== */
+
+.admin-tab {
+  padding: 6px 0;
+
+  background: transparent;
+  color: var(--texto-suave);
+
+  border: none;
+
+  font-size: 0.9rem;
+}
+
+.admin-tab:hover {
+  color: var(--texto);
+}
+
+.admin-tab.activo {
+  color: var(--acento-suave);
+}
+
+
+/* ========================================
+   LISTAS ADMINISTRATIVAS
+======================================== */
+
+.lista-admin {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-item {
+  display: grid;
+  grid-template-columns:
+    80px minmax(0, 1fr) 130px auto;
+  align-items: center;
+  gap: 15px;
+
+  padding: 12px;
+
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.admin-item__imagen {
+  width: 80px;
+  height: 64px;
+
+  object-fit: cover;
+
+  border-radius: 5px;
+}
+
+.admin-item__informacion {
+  min-width: 0;
+}
+
+.admin-item__informacion h2 {
+  margin-bottom: 4px;
+
+  font-size: 0.95rem;
+}
+
+.admin-item__informacion p {
+  color: var(--texto-suave);
+  font-size: 0.78rem;
+  text-transform: capitalize;
+}
+
+.admin-item__precio {
+  color: var(--acento-suave);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.admin-item__acciones {
+  display: flex;
+  gap: 7px;
+}
+
+.admin-item__acciones .btn {
+  min-height: 38px;
+  padding: 0 12px;
+}
+
+
+/* ========================================
+   ÓRDENES
+======================================== */
+
+.orden-item {
+  display: grid;
+grid-template-columns:
+  minmax(150px, 1fr)
+  minmax(180px, 1fr)
+  130px
+  110px
+  auto;
+  align-items: center;
+  gap: 15px;
+
+  padding: 17px;
+
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.orden-item h2 {
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+.orden-item p {
+  color: var(--texto-suave);
+  font-size: 0.78rem;
+}
+
+.orden-item__productos {
+  color: var(--texto-suave);
+  font-size: 0.8rem;
+}
+
+.orden-item__total {
+  color: var(--acento-suave);
+  font-weight: 600;
+}
+
+.orden-item__estado {
+  width: max-content;
+
+  padding: 4px 9px;
+
+  background: #35293a;
+  color: var(--acento-suave);
+
+  border-radius: 20px;
+
+  font-size: 0.72rem;
+}
+
+
+/* ========================================
+   MENSAJERÍA ADMINISTRATIVA
+======================================== */
+
+.mensajeria-admin {
+  min-height: 570px;
+
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+
+  overflow: hidden;
+
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.lista-conversaciones {
+  overflow-y: auto;
+
+  border-right: 1px solid var(--borde);
+}
+
+.conversacion-item {
+  width: 100%;
+
+  padding: 15px;
+
+  text-align: left;
+
+  background: transparent;
+  color: var(--texto);
+
+  border: none;
+  border-bottom: 1px solid var(--borde);
+}
+
+.conversacion-item:hover {
+  background: var(--superficie-2);
+}
+
+.conversacion-item.activo {
+  background: #321c34;
+  border-left: 3px solid var(--acento-suave);
+}
+
+.conversacion-item strong {
+  display: block;
+  margin-bottom: 3px;
+
+  font-size: 0.85rem;
+}
+
+.conversacion-item span {
+  display: block;
+
+  overflow: hidden;
+
+  color: var(--texto-suave);
+  font-size: 0.72rem;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* ========================================
+   CONVERSACIÓN SELECCIONADA
+======================================== */
+
+.conversacion-admin {
+  min-width: 0;
+
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.conversacion-admin__header {
+  padding: 16px 20px;
+
+  border-bottom: 1px solid var(--borde);
+}
+
+.conversacion-admin__header h2 {
+  font-size: 0.95rem;
+}
+
+.conversacion-admin__header p {
+  margin-top: 3px;
+
+  color: var(--texto-suave);
+  font-size: 0.75rem;
+}
+
+.mensajes-admin {
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  overflow-y: auto;
+
+  padding: 20px;
+
+  background: var(--fondo);
+}
+
+.mensaje-admin {
+  max-width: min(72%, 560px);
+
+  padding: 11px 14px;
+
+  border-radius: 7px;
+
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.mensaje-admin--usuario {
+  align-self: flex-start;
+
+  background: var(--superficie-2);
+  border: 1px solid var(--borde);
+}
+
+.mensaje-admin--admin {
+  align-self: flex-end;
+
+  background: #4b204d;
+  border: 1px solid #713b70;
+}
+
+.mensaje-admin small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--texto-suave);
+  font-size: 0.68rem;
+}
+
+
+/* ========================================
+   FORMULARIO DE RESPUESTA
+======================================== */
+
+.form-respuesta {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+
+  padding: 14px;
+
+  border-top: 1px solid var(--borde);
+}
+
+.form-respuesta textarea {
+  flex: 1;
+
+  min-height: 65px;
+  max-height: 130px;
+
+  padding: 11px 13px;
+
+  resize: vertical;
+
+  background: var(--superficie-2);
+  color: var(--texto);
+
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+}
+
+
+/* ========================================
+   MODAL DE SERVICIOS
+======================================== */
+
+.modal-servicio__caja {
+  width: min(620px, 100%);
+  max-height: calc(100vh - 40px);
+
+  overflow-y: auto;
+}
+
+.modal-servicio__columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.campo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+}
+
+.campo-checkbox input {
+  width: 17px;
+  height: 17px;
+
+  accent-color: var(--acento);
+}
+
+
+/* ========================================
+   MÓVILES
+======================================== */
+
+@media (max-width: 900px) {
+  .admin-item {
+    grid-template-columns:
+      70px minmax(0, 1fr);
+  }
+
+  .admin-item__imagen {
+    width: 70px;
+  }
+
+  .admin-item__precio,
+  .admin-item__acciones {
+    grid-column: 2;
+  }
+
+  .orden-item {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mensajeria-admin {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .admin-encabezado {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-encabezado .btn {
+    width: 100%;
+  }
+
+  .mensajeria-admin {
+    grid-template-columns: 1fr;
+  }
+
+  .lista-conversaciones {
+    max-height: 190px;
+
+    border-right: none;
+    border-bottom: 1px solid var(--borde);
+  }
+
+  .conversacion-admin {
+    min-height: 520px;
+  }
+
+  .form-respuesta {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .form-respuesta .btn {
+    width: 100%;
+  }
+
+  .orden-item {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-servicio__columnas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   VISTA PREVIA DEL USUARIO
+======================================== */
+
+.vista-usuario-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+
+  visibility: hidden;
+  opacity: 0;
+
+  background: rgba(0, 0, 0, 0.72);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.vista-usuario-overlay.abierto {
+  visibility: visible;
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+
+/* ========================================
+   PANEL LATERAL
+======================================== */
+
+.vista-usuario-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  width: min(1100px, 88vw);
+
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+
+  background: var(--fondo);
+  border-left: 1px solid var(--borde);
+  box-shadow:
+    -18px 0 45px rgba(0, 0, 0, 0.45);
+
+  transform: translateX(105%);
+
+  transition: transform 0.3s ease;
+}
+
+.vista-usuario-overlay.abierto
+.vista-usuario-panel {
+  transform: translateX(0);
+}
+
+
+/* ========================================
+   ENCABEZADO DE LA VISTA
+======================================== */
+
+.vista-usuario-panel__header {
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 12px 18px;
+
+  background: var(--superficie);
+  border-bottom: 1px solid var(--borde);
+}
+
+.vista-usuario-panel__header h2 {
+  font-family: var(--display);
+  font-size: 1rem;
+}
+
+.vista-usuario-panel__header p {
+  font-size: 0.72rem;
+}
+
+.vista-usuario-panel__acciones {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+
+/* ========================================
+   PÁGINA CARGADA
+======================================== */
+
+.vista-usuario-panel__iframe {
+  width: 100%;
+  height: 100%;
+
+  background: var(--fondo);
+
+  border: none;
+}
+
+
+/* ========================================
+   MÓVILES
+======================================== */
+
+@media (max-width: 700px) {
+  .vista-usuario-panel {
+    width: 100%;
+  }
+
+  .vista-usuario-panel__header {
+    padding: 10px 12px;
+  }
+
+  .vista-usuario-panel__header p {
+    display: none;
+  }
+
+  .vista-usuario-panel__acciones
+  .btn:not(.btn--icono) {
+    padding: 0 11px;
+  }
+}

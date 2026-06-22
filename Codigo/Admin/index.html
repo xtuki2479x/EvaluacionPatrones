@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Administración | Mi Espacio Esotérico
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="../css/global.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="admin.css"
+  >
+</head>
+
+<body>
+
+  <nav class="navbar">
+
+    <a
+      class="navbar__logo"
+      href="index.html"
+    >
+      Panel
+      <span>Administrativo</span>
+    </a>
+
+    <div class="navbar__links">
+
+      <button
+        class="admin-tab activo"
+        type="button"
+        data-vista="servicios"
+      >
+        Servicios
+      </button>
+
+      <button
+        class="admin-tab"
+        type="button"
+        data-vista="mensajes"
+      >
+        Mensajes
+      </button>
+
+      <button
+        class="admin-tab"
+        type="button"
+        data-vista="ordenes"
+      >
+        Órdenes
+      </button>
+
+    </div>
+
+    <div class="navbar__acciones">
+
+    <button
+    id="abrir-vista-usuario"
+    class="btn btn--secundario"
+    type="button"
+    >
+    Ver página
+    </button>
+
+      <a
+        class="btn btn--secundario"
+        href="../index.html"
+      >
+        Cerrar acceso
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <main class="contenedor admin">
+
+    <!-- GESTIÓN DE SERVICIOS -->
+
+    <section
+      id="vista-servicios"
+      class="admin-vista"
+    >
+
+      <div class="admin-encabezado">
+
+        <div>
+          <p class="texto-suave">
+            Gestión del catálogo
+          </p>
+
+          <h1 class="titulo">
+            Servicios y productos
+          </h1>
+        </div>
+
+        <button
+          id="agregar-servicio"
+          class="btn btn--primario"
+          type="button"
+        >
+          Agregar servicio
+        </button>
+
+      </div>
+
+      <div
+        id="lista-servicios-admin"
+        class="lista-admin"
+      >
+        <!-- JavaScript mostrará los servicios -->
+      </div>
+
+    </section>
+
+
+    <!-- MENSAJES -->
+
+    <section
+      id="vista-mensajes"
+      class="admin-vista hidden"
+    >
+
+      <div class="admin-encabezado">
+        <div>
+          <p class="texto-suave">
+            Atención de usuarios
+          </p>
+
+          <h1 class="titulo">
+            Mensajes
+          </h1>
+        </div>
+      </div>
+
+      <div class="mensajeria-admin">
+
+        <aside
+          id="lista-conversaciones"
+          class="lista-conversaciones"
+        >
+          <!-- Lista de usuarios -->
+        </aside>
+
+        <section class="conversacion-admin">
+
+          <header class="conversacion-admin__header">
+
+            <h2 id="nombre-conversacion">
+              Selecciona una conversación
+            </h2>
+
+            <p id="correo-conversacion"></p>
+
+          </header>
+
+          <div
+            id="mensajes-admin"
+            class="mensajes-admin"
+          >
+            <div class="estado-vacio">
+              Selecciona un usuario para revisar
+              sus mensajes.
+            </div>
+          </div>
+
+          <form
+            id="form-respuesta"
+            class="form-respuesta hidden"
+          >
+
+            <label
+              class="hidden"
+              for="respuesta-admin"
+            >
+              Respuesta
+            </label>
+
+            <textarea
+              id="respuesta-admin"
+              maxlength="500"
+              required
+              placeholder="Escribe una respuesta..."
+            ></textarea>
+
+            <button
+              class="btn btn--primario"
+              type="submit"
+            >
+              Responder
+            </button>
+
+          </form>
+
+        </section>
+
+      </div>
+
+    </section>
+
+
+    <!-- ÓRDENES SIMULADAS -->
+
+    <section
+      id="vista-ordenes"
+      class="admin-vista hidden"
+    >
+
+      <div class="admin-encabezado">
+        <div>
+          <p class="texto-suave">
+            Compras simuladas
+          </p>
+
+          <h1 class="titulo">
+            Órdenes recibidas
+          </h1>
+        </div>
+      </div>
+
+      <div
+        id="lista-ordenes"
+        class="lista-admin"
+      >
+        <!-- JavaScript mostrará las órdenes -->
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- MODAL PARA CREAR O EDITAR SERVICIOS -->
+
+  <div
+    id="modal-servicio"
+    class="modal hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="titulo-modal-servicio"
+  >
+
+    <form
+      id="form-servicio"
+      class="modal__caja modal-servicio__caja"
+    >
+
+      <button
+        id="cerrar-modal-servicio"
+        class="modal__cerrar"
+        type="button"
+        aria-label="Cerrar"
+      >
+        ✕
+      </button>
+
+      <h2
+        id="titulo-modal-servicio"
+        class="modal__titulo"
+      >
+        Agregar servicio
+      </h2>
+
+      <input
+        id="servicio-id"
+        type="hidden"
+      >
+
+
+      <div class="campo">
+
+        <label for="servicio-nombre">
+          Nombre
+        </label>
+
+        <input
+          id="servicio-nombre"
+          type="text"
+          required
+          placeholder="Nombre del servicio"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="servicio-descripcion-corta">
+          Descripción corta
+        </label>
+
+        <input
+          id="servicio-descripcion-corta"
+          type="text"
+          maxlength="100"
+          required
+          placeholder="Resumen para la tarjeta"
+        >
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="servicio-descripcion">
+          Descripción completa
+        </label>
+
+        <textarea
+          id="servicio-descripcion"
+          required
+          placeholder="Información detallada"
+        ></textarea>
+
+      </div>
+
+
+      <div class="modal-servicio__columnas">
+
+        <div class="campo">
+
+          <label for="servicio-precio">
+            Precio
+          </label>
+
+          <input
+            id="servicio-precio"
+            type="number"
+            min="0"
+            required
+            placeholder="15000"
+          >
+
+        </div>
+
+
+        <div class="campo">
+
+          <label for="servicio-categoria">
+            Categoría
+          </label>
+
+          <select id="servicio-categoria">
+
+            <option value="lecturas">
+              Lecturas
+            </option>
+
+            <option value="astrologia">
+              Astrología
+            </option>
+
+            <option value="runas">
+              Runas
+            </option>
+
+            <option value="limpiezas">
+              Limpiezas
+            </option>
+
+            <option value="amuletos">
+              Amuletos
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <div class="campo">
+
+        <label for="servicio-imagen">
+          Ruta o URL de la imagen
+        </label>
+
+        <input
+          id="servicio-imagen"
+          type="text"
+          placeholder="../Recursos/imagen.webp"
+        >
+
+      </div>
+
+
+      <label class="campo-checkbox">
+
+        <input
+          id="servicio-premium"
+          type="checkbox"
+        >
+
+        <span>
+          Marcar como servicio premium
+        </span>
+
+      </label>
+
+
+      <button
+        class="btn btn--primario btn--bloque"
+        type="submit"
+      >
+        Guardar servicio
+      </button>
+
+    </form>
+
+  </div>
+
+
+  <div id="toast-container"></div>
+
+<!-- VISTA PREVIA DE LA PÁGINA DEL USUARIO -->
+
+<div
+  id="vista-usuario-overlay"
+  class="vista-usuario-overlay"
+>
+
+  <aside
+    id="vista-usuario-panel"
+    class="vista-usuario-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Vista de la página del usuario"
+  >
+
+    <header class="vista-usuario-panel__header">
+
+      <div>
+        <p class="texto-suave">
+          Vista previa
+        </p>
+
+        <h2>
+          Página del usuario
+        </h2>
+      </div>
+
+      <div class="vista-usuario-panel__acciones">
+
+        <button
+          id="actualizar-vista-usuario"
+          class="btn btn--secundario"
+          type="button"
+        >
+          Actualizar
+        </button>
+
+        <button
+          id="cerrar-vista-usuario"
+          class="btn btn--icono btn--secundario"
+          type="button"
+          aria-label="Cerrar vista previa"
+          title="Cerrar"
+        >
+          ✕
+        </button>
+
+      </div>
+
+    </header>
+
+    <iframe
+      id="iframe-vista-usuario"
+      class="vista-usuario-panel__iframe"
+      src="../Principal/principal.html"
+      title="Página del usuario"
+    ></iframe>
+
+  </aside>
+
+</div>
+
+  <script src="../js/patrones.js"></script>
+  <script src="admin.js"></script>
+
+</body>
+</html>
