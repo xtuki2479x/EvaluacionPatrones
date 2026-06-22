@@ -3,15 +3,46 @@
 ======================================== */
 
 const KEYS = {
-  servicios: "mee_servicios_v2",
+  servicios: "mee_servicios_v3",
   carrito: "mee_carrito",
   sesion: "mee_sesion",
   mensajes: "mee_mensajes"
 };
 
 const IMG_DEFAULT =
-  "../Recursos/patron-esoterico.webp";
+  "../Recursos/patronesoterico.png";
+  
+const IMAGENES_SERVICIOS = {
+  1: "imagenlectura.png",
+  2: "imagenlectura.png",
+  3: "imagenlectura.png",
+  4: "imagenlectura.png",
+  5: "imagenlectura.png",
 
+  6: "imagenastrologia.png",
+  7: "imagenastrologia.png",
+  8: "imagenastrologia.png",
+  9: "imagenastrologia.png",
+  10: "imagenastrologia.png",
+
+  11: "imagenrunas.png",
+  12: "imagenrunas.png",
+  13: "imagenrunas.png",
+  14: "imagenrunas.png",
+  15: "imagenrunas.png",
+
+  16: "imagenlimpiezas.png",
+  17: "imagenlimpiezas.png",
+  18: "imagenlimpiezas.png",
+  19: "imagenlimpiezas.png",
+  20: "imagenlimpiezas.png",
+
+  21: "imagenamuletos.png",
+  22: "imagenamuletos.png",
+  23: "imagenamuletos.png",
+  24: "imagenamuletos.png",
+  25: "imagenamuletos.png"
+};
 
 /* ========================================
    SERVICIOS INICIALES
@@ -31,7 +62,8 @@ function crearServicioInicial(
     descripcionCorta: descripcion,
     descripcion,
     precio,
-    imagen: IMG_DEFAULT,
+    imagen:
+      `../Recursos/servicios/${IMAGENES_SERVICIOS[id]}`,
     categoria,
     premium
   };
