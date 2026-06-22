@@ -3,7 +3,7 @@
 ======================================== */
 
 const KEYS = {
-  servicios: "mee_servicios_v3",
+  servicios: "mee_servicios_v5",
   carrito: "mee_carrito",
   sesion: "mee_sesion",
   mensajes: "mee_mensajes"
@@ -12,36 +12,27 @@ const KEYS = {
 const IMG_DEFAULT =
   "../Recursos/patronesoterico.png";
   
-const IMAGENES_SERVICIOS = {
-  1: "imagenlectura.png",
-  2: "imagenlectura.png",
-  3: "imagenlectura.png",
-  4: "imagenlectura.png",
-  5: "imagenlectura.png",
 
-  6: "imagenastrologia.png",
-  7: "imagenastrologia.png",
-  8: "imagenastrologia.png",
-  9: "imagenastrologia.png",
-  10: "imagenastrologia.png",
-
-  11: "imagenrunas.png",
-  12: "imagenrunas.png",
-  13: "imagenrunas.png",
-  14: "imagenrunas.png",
-  15: "imagenrunas.png",
-
-  16: "imagenlimpiezas.png",
-  17: "imagenlimpiezas.png",
-  18: "imagenlimpiezas.png",
-  19: "imagenlimpiezas.png",
-  20: "imagenlimpiezas.png",
-
-  21: "imagenamuletos.png",
-  22: "imagenamuletos.png",
-  23: "imagenamuletos.png",
-  24: "imagenamuletos.png",
-  25: "imagenamuletos.png"
+const IMAGENES_CATEGORIA = {
+  lecturas: "imagenlectura.png",
+  astrologia: "imagenastrologia.png",
+  runas: "imagenrunas.png",
+  limpiezas: "imagenlimpiezas.png",
+  amuletos: "imagenamuletos.png"
+};
+const IMAGENES_CATEGORIA = {
+  lecturas: "imagenlectura.png",
+  astrologia: "imagenastrologia.png",
+  runas: "imagenrunas.png",
+  limpiezas: "imagenlimpiezas.png",
+  amuletos: "imagenamuletos.png"
+};
+const IMAGENES_CATEGORIA = {
+  lecturas: "imagenlectura.png",
+  astrologia: "imagenastrologia.png",
+  runas: "imagenrunas.png",
+  limpiezas: "imagenlimpiezas.png",
+  amuletos: "imagenamuletos.png"
 };
 
 /* ========================================
@@ -63,7 +54,7 @@ function crearServicioInicial(
     descripcion,
     precio,
     imagen:
-      `../Recursos/servicios/${IMAGENES_SERVICIOS[id]}`,
+      `../Recursos/${IMAGENES_CATEGORIA[categoria]}`,
     categoria,
     premium
   };
