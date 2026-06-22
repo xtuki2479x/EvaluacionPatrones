@@ -1,248 +1,497 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Mi Espacio Esotérico</title>
-  <link rel="stylesheet" href="../global.css" />
-  <link rel="stylesheet" href="principal.css" />
+
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="principal.css">
 </head>
+
 <body>
 
   <nav class="navbar">
-    <a href="index.html" class="navbar__logo">Mi Espacio <span>Esotérico</span></a>
+    <a class="navbar__logo" href="principal.html">
+      Mi Espacio <span>Esotérico</span>
+    </a>
+
     <div class="navbar__links">
-      <a href="index.html" class="activo">Inicio</a>
-      <a href="../carrito/carrito.html">Carrito</a>
-      <a href="../chat/chat.html">Chat</a>
+      <a class="activo" href="principal.html">Inicio</a>
+      <a href="#catalogo">Servicios</a>
+      <a href="../Chat/chat.html">Chat</a>
     </div>
+
     <div class="navbar__acciones">
-      <div id="auth-buttons" class="navbar__auth">
-        <button class="btn-auth btn-auth--login" onclick="abrirLogin()">Iniciar sesión</button>
-        <button class="btn-auth btn-auth--registro" onclick="abrirRegistro()">Registrarse</button>
-      </div>
-      <div id="auth-usuario" class="navbar__usuario hidden">
-        <span id="usuario-nombre"></span>
-        <span id="usuario-badge" class="badge-rol"></span>
-        <button class="btn-logout" onclick="cerrarSesion()">Salir</button>
-      </div>
-      <button class="btn-carrito-nav" onclick="toggleCarrito()" aria-label="Abrir carrito">
-        🛒
-        <span class="carrito-badge" id="carrito-badge"></span>
+      <button
+        id="btn-sesion"
+        class="btn btn--secundario"
+        type="button"
+      >
+        Iniciar sesión
       </button>
+
+      <a
+        class="btn btn--icono btn--secundario"
+        href="../Carrito/carrito.html"
+        aria-label="Abrir carrito"
+        title="Carrito"
+      >
+        🛒
+        <span
+          class="contador hidden"
+          data-cart-count
+        ></span>
+      </a>
     </div>
   </nav>
 
-  <!-- BIENVENIDA -->
-  <section class="bienvenida">
-    <div class="bienvenida__contenido">
-      <p class="bienvenida__eyebrow">✦ Bienvenida a tu espacio sagrado ✦</p>
-      <h1 class="bienvenida__titulo">Mi Espacio <span>Esotérico</span></h1>
-      <p class="bienvenida__subtitulo">Lecturas de tarot, astrología y guía espiritual para iluminar tu camino</p>
+  <header class="hero">
+    <div class="hero__contenido contenedor">
+      <p class="hero__eyebrow">
+        Lecturas y orientación espiritual
+      </p>
+
+      <h1>Un espacio para mirar hacia dentro</h1>
+
+      <p>
+        Explora nuestros servicios, calcula tus arcanos
+        y conversa con una consejera.
+      </p>
+
+      <a class="btn btn--primario" href="#catalogo">
+        Ver servicios
+      </a>
     </div>
-    <div class="bienvenida__particulas" aria-hidden="true">
-      <span></span><span></span><span></span>
-      <span></span><span></span><span></span>
+  </header>
+
+  <main id="catalogo" class="contenedor contenido">
+
+    <!-- CATÁLOGO DE LECTURAS -->
+
+    <section class="seccion">
+      <div class="seccion__encabezado">
+        <div>
+          <p class="texto-suave">Catálogo</p>
+          <h2 class="titulo">Lecturas</h2>
+        </div>
+
+        <div>
+          <button
+            class="flecha"
+            data-carrusel="lecturas"
+            data-dir="-1"
+            aria-label="Anterior"
+          >
+            ←
+          </button>
+
+          <button
+            class="flecha"
+            data-carrusel="lecturas"
+            data-dir="1"
+            aria-label="Siguiente"
+          >
+            →
+          </button>
+        </div>
+      </div>
+
+      <div class="carrusel" id="lecturas"></div>
+    </section>
+
+    <!-- CATÁLOGO DE ASTROLOGÍA -->
+
+    <section class="seccion">
+      <div class="seccion__encabezado">
+        <div>
+          <p class="texto-suave">Catálogo</p>
+          <h2 class="titulo">Astrología</h2>
+        </div>
+
+        <div>
+          <button
+            class="flecha"
+            data-carrusel="astrologia"
+            data-dir="-1"
+            aria-label="Anterior"
+          >
+            ←
+          </button>
+
+          <button
+            class="flecha"
+            data-carrusel="astrologia"
+            data-dir="1"
+            aria-label="Siguiente"
+          >
+            →
+          </button>
+        </div>
+      </div>
+
+      <div class="carrusel" id="astrologia"></div>
+    </section>
+
+    <!-- CATÁLOGO DE RUNAS -->
+
+<section class="seccion">
+  <div class="seccion__encabezado">
+    <div>
+      <p class="texto-suave">Catálogo</p>
+      <h2 class="titulo">Runas</h2>
     </div>
-  </section>
 
-  <main class="catalogo">
+    <div>
+      <button
+        class="flecha"
+        data-carrusel="runas"
+        data-dir="-1"
+        aria-label="Anterior"
+      >
+        ←
+      </button>
 
-    <!-- Lecturas -->
-    <section class="catalogo__seccion">
-      <div class="catalogo__header">
-        <h2 class="catalogo__titulo">Lecturas</h2>
-        <div class="catalogo__controles">
-          <button class="btn-flecha" data-dir="izq" data-target="carrusel-lecturas">&#8592;</button>
-          <button class="btn-flecha" data-dir="der" data-target="carrusel-lecturas">&#8594;</button>
-        </div>
+      <button
+        class="flecha"
+        data-carrusel="runas"
+        data-dir="1"
+        aria-label="Siguiente"
+      >
+        →
+      </button>
+    </div>
+  </div>
+
+  <div class="carrusel" id="runas"></div>
+</section>
+
+
+<!-- CATÁLOGO DE LIMPIEZAS -->
+
+<section class="seccion">
+  <div class="seccion__encabezado">
+    <div>
+      <p class="texto-suave">Catálogo</p>
+      <h2 class="titulo">Limpiezas energéticas</h2>
+    </div>
+
+    <div>
+      <button
+        class="flecha"
+        data-carrusel="limpiezas"
+        data-dir="-1"
+        aria-label="Anterior"
+      >
+        ←
+      </button>
+
+      <button
+        class="flecha"
+        data-carrusel="limpiezas"
+        data-dir="1"
+        aria-label="Siguiente"
+      >
+        →
+      </button>
+    </div>
+  </div>
+
+  <div class="carrusel" id="limpiezas"></div>
+</section>
+
+
+<!-- CATÁLOGO DE AMULETOS -->
+
+<section class="seccion">
+  <div class="seccion__encabezado">
+    <div>
+      <p class="texto-suave">Tienda</p>
+      <h2 class="titulo">Amuletos y productos</h2>
+    </div>
+
+    <div>
+      <button
+        class="flecha"
+        data-carrusel="amuletos"
+        data-dir="-1"
+        aria-label="Anterior"
+      >
+        ←
+      </button>
+
+      <button
+        class="flecha"
+        data-carrusel="amuletos"
+        data-dir="1"
+        aria-label="Siguiente"
+      >
+        →
+      </button>
+    </div>
+  </div>
+
+  <div class="carrusel" id="amuletos"></div>
+</section>
+
+    <!-- PLANES PREMIUM -->
+
+    <section class="seccion">
+      <p class="texto-suave">Suscripciones</p>
+      <h2 class="titulo">Planes premium</h2>
+
+      <div class="planes">
+
+        <article class="plan">
+          <h3>Plan Inicial</h3>
+          <strong>Gratis</strong>
+
+          <p>
+            Acceso al catálogo y a las calculadoras básicas.
+          </p>
+
+          <button
+            class="btn btn--secundario btn--bloque"
+            disabled
+          >
+            Plan actual
+          </button>
+        </article>
+
+        <article class="plan plan--destacado">
+          <span class="badge">Recomendado</span>
+
+          <h3>Plan Lunar</h3>
+          <strong>$9.990 / mes</strong>
+
+          <p>
+            Acceso al chat y a contenido espiritual ampliado.
+          </p>
+
+          <button
+            class="btn btn--primario btn--bloque"
+            data-plan="Plan Lunar"
+          >
+            Suscribirme
+          </button>
+        </article>
+
+        <article class="plan">
+          <h3>Plan Cosmos</h3>
+          <strong>$16.990 / mes</strong>
+
+          <p>
+            Todos los beneficios, contenido exclusivo y prioridad.
+          </p>
+
+          <button
+            class="btn btn--secundario btn--bloque"
+            data-plan="Plan Cosmos"
+          >
+            Suscribirme
+          </button>
+        </article>
+
       </div>
-      <div class="carrusel" id="carrusel-lecturas"></div>
     </section>
 
-    <!-- Astrología -->
-    <section class="catalogo__seccion">
-      <div class="catalogo__header">
-        <h2 class="catalogo__titulo">Astrología</h2>
-        <div class="catalogo__controles">
-          <button class="btn-flecha" data-dir="izq" data-target="carrusel-astrologia">&#8592;</button>
-          <button class="btn-flecha" data-dir="der" data-target="carrusel-astrologia">&#8594;</button>
-        </div>
-      </div>
-      <div class="carrusel" id="carrusel-astrologia"></div>
-    </section>
+    <!-- CARTAS Y HORÓSCOPO -->
 
-    <!-- Planes Premium -->
-    <section class="catalogo__seccion seccion-planes">
-      <div class="catalogo__header">
-        <h2 class="catalogo__titulo">Planes <span class="badge-premium">✦ Suscripción</span></h2>
-      </div>
-      <div class="planes-grid">
+    <section class="seccion">
+      <p class="texto-suave">Herramientas</p>
+      <h2 class="titulo">Tu carta del cielo</h2>
 
-        <div class="plan-card">
-          <div class="plan-card__header">
-            <h3 class="plan-card__nombre">Plan A</h3>
-            <p class="plan-card__precio">Gratis</p>
-            <p class="plan-card__periodo">siempre</p>
-          </div>
-          <ul class="plan-card__beneficios">
-            <li>✦ Beneficio 1</li>
-            <li>✦ Beneficio 2</li>
-            <li>✦ Beneficio 3</li>
-          </ul>
-          <button class="btn btn--secundario btn--bloque" disabled>Plan actual</button>
-        </div>
+      <div class="calculadoras">
 
-        <div class="plan-card plan-card--destacado">
-          <span class="plan-card__badge badge-premium">✦ Popular</span>
-          <div class="plan-card__header">
-            <h3 class="plan-card__nombre">Plan B</h3>
-            <p class="plan-card__precio">$X.000</p>
-            <p class="plan-card__periodo">por mes</p>
-          </div>
-          <ul class="plan-card__beneficios">
-            <li>✦ Beneficio 1</li>
-            <li>✦ Beneficio 2</li>
-            <li>✦ Beneficio 3</li>
-            <li>✦ Beneficio 4</li>
-          </ul>
-          <button class="btn btn--primario btn--bloque" onclick="suscribirse('Plan B')">Suscribirse</button>
-        </div>
+        <article class="calculadora">
+          <h3>Arcano de nacimiento</h3>
 
-        <div class="plan-card">
-          <div class="plan-card__header">
-            <h3 class="plan-card__nombre">Plan C</h3>
-            <p class="plan-card__precio">$XX.000</p>
-            <p class="plan-card__periodo">por mes</p>
-          </div>
-          <ul class="plan-card__beneficios">
-            <li>✦ Beneficio 1</li>
-            <li>✦ Beneficio 2</li>
-            <li>✦ Beneficio 3</li>
-            <li>✦ Beneficio 4</li>
-            <li>✦ Beneficio 5</li>
-          </ul>
-          <button class="btn btn--secundario btn--bloque" onclick="suscribirse('Plan C')">Suscribirse</button>
-        </div>
+          <p>
+            Descubre tu arcano de nacimiento.
+          </p>
 
-      </div>
-    </section>
+          <input
+            type="date"
+            id="fecha-natal"
+            aria-label="Fecha de nacimiento"
+          >
 
-    <!-- Cartas y Horóscopo -->
-    <section class="catalogo__seccion seccion-cartas">
-      <h2 class="catalogo__titulo">Tu Carta del Cielo</h2>
-      <div class="cartas-grid">
+          <button
+            class="btn btn--primario btn--bloque"
+            data-calcular="natal"
+          >
+            Calcular
+          </button>
 
-        <div class="carta-calc">
-          <h3>🌙 Carta Natal</h3>
-          <p class="text-suave">Descubre tu arcano de nacimiento</p>
-          <div class="carta-calc__form">
-            <input type="date" id="fecha-natal" class="input-fecha" />
-            <button class="btn btn--primario btn--bloque" onclick="calcularNatal()">Calcular arcano natal</button>
-          </div>
-          <div class="carta-resultado hidden" id="resultado-natal"></div>
-        </div>
+          <div
+            class="resultado"
+            id="resultado-natal"
+          ></div>
+        </article>
 
-        <div class="carta-calc">
-          <h3>☀️ Arcano Anual</h3>
-          <p class="text-suave">Descubre cómo te irá en el año elegido</p>
-          <div class="carta-calc__form">
-            <input type="date" id="fecha-anual" class="input-fecha" />
-            <input type="number" id="anio-anual" class="input-fecha" placeholder="Año (ej: 2026)" min="2000" max="2100" />
-            <button class="btn btn--primario btn--bloque" onclick="calcularAnual()">Calcular arcano anual</button>
-          </div>
-          <div class="carta-resultado hidden" id="resultado-anual"></div>
-        </div>
+        <article class="calculadora">
+          <h3>Arcano anual</h3>
 
-        <div class="carta-calc">
-          <h3>⭐ Horóscopo Diario</h3>
-          <p class="text-suave">Conoce tu signo y horóscopo de hoy</p>
-          <div class="carta-calc__form">
-            <input type="date" id="fecha-horoscopo" class="input-fecha" />
-            <button class="btn btn--primario btn--bloque" onclick="calcularHoroscopo()">Ver horóscopo</button>
-          </div>
-          <div class="carta-resultado hidden" id="resultado-horoscopo"></div>
-        </div>
+          <p>
+            Conoce la energía asociada a un ciclo anual.
+          </p>
+
+          <input
+            type="date"
+            id="fecha-anual"
+            aria-label="Fecha de nacimiento"
+          >
+
+          <button
+            class="btn btn--primario btn--bloque"
+            data-calcular="anual"
+          >
+            Calcular
+          </button>
+
+          <div
+            class="resultado"
+            id="resultado-anual"
+          ></div>
+        </article>
+
+        <article class="calculadora">
+          <h3>Horóscopo</h3>
+
+          <p>
+            Identifica tu signo según tu fecha de nacimiento.
+          </p>
+
+          <input
+            type="date"
+            id="fecha-signo"
+            aria-label="Fecha de nacimiento"
+          >
+
+          <button
+            class="btn btn--primario btn--bloque"
+            data-calcular="signo"
+          >
+            Ver signo
+          </button>
+
+          <div
+            class="resultado"
+            id="resultado-signo"
+          ></div>
+        </article>
 
       </div>
     </section>
 
   </main>
 
-  <!-- Panel izquierdo: detalle servicio -->
-  <aside class="panel-detalle hidden" id="panel-detalle" role="dialog" aria-modal="true" aria-label="Detalle del servicio">
-    <button class="panel-detalle__cerrar" onclick="cerrarPanel()" aria-label="Cerrar">✕</button>
-    <div class="panel-detalle__imagen-wrap">
-      <div class="panel-detalle__imagen-placeholder" id="panel-imagen"></div>
-    </div>
-    <div class="panel-detalle__contenido">
-      <span class="panel-detalle__categoria" id="panel-categoria"></span>
-      <h2 class="panel-detalle__nombre" id="panel-nombre"></h2>
-      <p class="panel-detalle__precio" id="panel-precio"></p>
-      <p class="panel-detalle__descripcion" id="panel-descripcion"></p>
-      <div id="panel-accion"></div>
+  <!-- PANEL LATERAL DEL SERVICIO -->
+
+  <aside
+    id="detalle"
+    class="panel panel--izq"
+    aria-label="Detalle del servicio"
+  >
+    <button
+      class="panel__cerrar"
+      data-cerrar
+      aria-label="Cerrar panel"
+    >
+      ✕
+    </button>
+
+    <img id="detalle-imagen" src="" alt="Imagen del servicio">
+
+    <div class="panel__cuerpo">
+      <span
+        id="detalle-categoria"
+        class="badge"
+      ></span>
+
+      <h2 id="detalle-nombre"></h2>
+
+      <strong id="detalle-precio"></strong>
+
+      <p id="detalle-descripcion"></p>
+
+      <button
+        id="detalle-agregar"
+        class="btn btn--primario btn--bloque"
+      >
+        Agregar al carrito
+      </button>
     </div>
   </aside>
 
-  <!-- Panel derecho: carrito -->
-  <aside class="panel-carrito hidden" id="panel-carrito" role="dialog" aria-modal="true" aria-label="Carrito">
-    <div class="panel-carrito__header">
-      <h2>Carrito</h2>
-      <button class="panel-detalle__cerrar" onclick="toggleCarrito()" aria-label="Cerrar carrito">✕</button>
-    </div>
-    <div class="panel-carrito__items" id="carrito-items"></div>
-    <div class="panel-carrito__footer">
-      <div class="carrito-total">
-        <span>Total</span>
-        <span id="carrito-total-precio">$0</span>
-      </div>
-      <a href="../carrito/carrito.html" class="btn btn--primario btn--bloque">Ver carrito completo</a>
-    </div>
-  </aside>
+  <div
+    id="overlay"
+    class="overlay"
+    data-cerrar
+  ></div>
 
-  <div class="overlay" id="overlay" onclick="cerrarTodo()"></div>
+  <!-- MODAL DE INICIO DE SESIÓN -->
 
-  <!-- Modal Login -->
-  <div class="modal hidden" id="modal-login" role="dialog" aria-modal="true">
-    <div class="modal__caja">
-      <button class="modal__cerrar" onclick="cerrarModal('modal-login')">✕</button>
-      <h2 class="modal__titulo">Iniciar sesión</h2>
-      <div class="modal__campo">
-        <label>Usuario</label>
-        <input type="text" id="login-usuario" class="input-campo" placeholder="tu@email.com" />
-      </div>
-      <div class="modal__campo">
-        <label>Contraseña</label>
-        <input type="password" id="login-pass" class="input-campo" placeholder="••••••••" />
-      </div>
-      <button class="btn btn--primario btn--bloque" onclick="iniciarSesion()">Entrar</button>
-      <p class="modal__pie">¿No tienes cuenta? <a href="#" onclick="switchModal('modal-login','modal-registro')">Regístrate</a></p>
-    </div>
-  </div>
+  <div
+    id="modal-sesion"
+    class="modal hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="titulo-sesion"
+  >
+    <form id="form-sesion" class="modal__caja">
 
-  <!-- Modal Registro -->
-  <div class="modal hidden" id="modal-registro" role="dialog" aria-modal="true">
-    <div class="modal__caja">
-      <button class="modal__cerrar" onclick="cerrarModal('modal-registro')">✕</button>
-      <h2 class="modal__titulo">Crear cuenta</h2>
-      <div class="modal__campo">
-        <label>Nombre</label>
-        <input type="text" id="reg-nombre" class="input-campo" placeholder="Tu nombre" />
+      <button
+        class="modal__cerrar"
+        type="button"
+        data-cerrar-modal
+        aria-label="Cerrar"
+      >
+        ✕
+      </button>
+
+      <h2 id="titulo-sesion" class="modal__titulo">
+        Acceso de usuario
+      </h2>
+
+      <div class="campo">
+        <label for="nombre">Nombre</label>
+
+        <input
+          id="nombre"
+          type="text"
+          required
+          placeholder="Tu nombre"
+        >
       </div>
-      <div class="modal__campo">
-        <label>Email</label>
-        <input type="email" id="reg-email" class="input-campo" placeholder="tu@email.com" />
+
+      <div class="campo">
+        <label for="correo">Correo</label>
+
+        <input
+          id="correo"
+          type="email"
+          required
+          placeholder="nombre@correo.cl"
+        >
       </div>
-      <div class="modal__campo">
-        <label>Contraseña</label>
-        <input type="password" id="reg-pass" class="input-campo" placeholder="••••••••" />
-      </div>
-      <button class="btn btn--primario btn--bloque" onclick="registrar()">Crear cuenta</button>
-      <p class="modal__pie">¿Ya tienes cuenta? <a href="#" onclick="switchModal('modal-registro','modal-login')">Inicia sesión</a></p>
-    </div>
+
+      <button class="btn btn--primario btn--bloque">
+        Entrar o registrarme
+      </button>
+
+      <p class="texto-suave">
+        Este acceso es simulado para la demostración.
+      </p>
+
+    </form>
   </div>
 
   <div id="toast-container"></div>
+
+  <script src="../js/patrones.js"></script>
   <script src="principal.js"></script>
+
 </body>
 </html>

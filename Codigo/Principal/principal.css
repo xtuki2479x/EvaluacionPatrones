@@ -1,617 +1,369 @@
+/* ========================================
+   BIENVENIDA
+======================================== */
 
-.bienvenida {
-  position: relative;
-  min-height: 340px;
+.hero {
+  min-height: 460px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  padding: 4rem 2rem;
   border-bottom: 1px solid var(--borde);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(17, 17, 19, 0.96),
+      rgba(17, 17, 19, 0.65)
+    ),
+    url("../Recursos/patron-esoterico.webp") center / 480px;
 }
 
-.bienvenida__contenido { position: relative; z-index: 2; }
+.hero__contenido {
+  max-width: 700px;
+  padding: 58px 0;
+}
 
-.bienvenida__eyebrow {
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  color: var(--acento-hover);
-  margin-bottom: 1rem;
+.hero__eyebrow {
+  color: var(--acento-suave);
+  font-size: 0.78rem;
   text-transform: uppercase;
 }
 
-.bienvenida__titulo {
-  font-family: var(--fuente-display);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 600;
-  color: var(--texto);
-  line-height: 1.15;
-  margin-bottom: 1rem;
+.hero h1 {
+  margin: 12px 0 18px;
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 7vw, 5.2rem);
+  line-height: 1.05;
 }
 
-.bienvenida__titulo span { color: var(--acento-hover); }
-
-.bienvenida__subtitulo {
-  font-size: 1rem;
+.hero p:not(.hero__eyebrow) {
+  max-width: 570px;
+  margin-bottom: 24px;
   color: var(--texto-suave);
-  max-width: 520px;
-  margin: 0 auto;
+  line-height: 1.7;
 }
 
-/* Partículas decorativas del hero */
-.bienvenida__particulas {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+
+/* ========================================
+   CONTENIDO PRINCIPAL
+======================================== */
+
+.contenido {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
-.bienvenida__particulas span {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: var(--acento-hover);
-  border-radius: 50%;
-  opacity: 0.4;
-  animation: flotar 6s infinite ease-in-out;
+.seccion {
+  margin-bottom: 58px;
 }
 
-.bienvenida__particulas span:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-.bienvenida__particulas span:nth-child(2) { top: 60%; left: 25%; animation-delay: 1s; }
-.bienvenida__particulas span:nth-child(3) { top: 30%; left: 75%; animation-delay: 2s; }
-.bienvenida__particulas span:nth-child(4) { top: 70%; left: 85%; animation-delay: 0.5s; }
-.bienvenida__particulas span:nth-child(5) { top: 15%; left: 55%; animation-delay: 1.5s; }
-.bienvenida__particulas span:nth-child(6) { top: 80%; left: 45%; animation-delay: 3s; }
-
-@keyframes flotar {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
-  50%       { transform: translateY(-18px) scale(2); opacity: 0.8; }
-}
-
-/* ── CATÁLOGO ── */
-.catalogo { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-
-.catalogo__seccion { margin-bottom: 3rem; }
-
-.catalogo__header {
+.seccion__encabezado {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 1.2rem;
+  margin-bottom: 18px;
 }
 
-.catalogo__titulo {
-  font-family: var(--fuente-display);
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--texto);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
 
-.catalogo__controles { display: flex; gap: 0.5rem; }
+/* ========================================
+   BOTONES DEL CARRUSEL
+======================================== */
 
-.btn-flecha {
-  width: 34px; height: 34px;
-  border-radius: 50%;
+.flecha {
+  width: 38px;
+  height: 38px;
+  margin-left: 6px;
+
   border: 1px solid var(--borde);
+  border-radius: 50%;
+
   background: var(--superficie);
-  color: var(--texto-suave);
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--transicion);
-  cursor: pointer;
+  color: var(--texto);
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.btn-flecha:hover {
-  border-color: var(--acento);
-  color: var(--acento-hover);
+.flecha:hover {
+  color: white;
+  border-color: var(--acento-suave);
+  background: var(--acento);
 }
 
-/* ── CARRUSEL ── */
+
+/* ========================================
+   CARRUSEL
+======================================== */
+
 .carrusel {
   display: flex;
-  gap: 1rem;
+  gap: 16px;
+
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding-bottom: 0.75rem;
   scrollbar-width: none;
+
+  padding: 3px 3px 16px;
 }
 
-.carrusel::-webkit-scrollbar { display: none; }
+.carrusel::-webkit-scrollbar {
+  display: none;
+}
 
-/* ── TARJETA DE SERVICIO ── */
+
+/* ========================================
+   TARJETAS DE SERVICIOS
+======================================== */
+
 .tarjeta {
-  flex: 0 0 200px;
+  flex: 0 0 245px;
+  overflow: hidden;
+
+  text-align: left;
+  color: var(--texto);
+
   background: var(--superficie);
   border: 1px solid var(--borde);
   border-radius: var(--radio);
-  overflow: hidden;
-  cursor: pointer;
-  transition: all var(--transicion);
-  position: relative;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .tarjeta:hover {
-  border-color: var(--acento);
-  box-shadow: var(--sombra-hover);
   transform: translateY(-3px);
+  border-color: var(--acento-suave);
+  box-shadow: var(--sombra);
 }
 
-.tarjeta__imagen {
+.tarjeta img {
   width: 100%;
-  height: 160px;
-  background: var(--superficie-2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--texto-suave);
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  border-bottom: 1px solid var(--borde);
-}
-
-.tarjeta__imagen img {
-  width: 100%;
-  height: 100%;
+  height: 170px;
   object-fit: cover;
+  filter: saturate(0.8);
 }
 
-.tarjeta__info { padding: 0.85rem; }
-
-.tarjeta__nombre {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--texto);
-  margin-bottom: 0.25rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.tarjeta__cuerpo {
+  padding: 15px;
 }
 
-.tarjeta__precio {
-  font-size: 0.85rem;
-  color: var(--acento-hover);
-  font-weight: 600;
+.tarjeta h3 {
+  margin-top: 8px;
+  margin-bottom: 7px;
+  font-size: 0.98rem;
 }
 
-.tarjeta__badge-premium {
-  position: absolute;
-  top: 0.5rem; right: 0.5rem;
+.tarjeta strong {
+  color: var(--acento-suave);
 }
 
-/* ── PANEL LATERAL IZQUIERDO — detalle ── */
-.panel-detalle {
-  position: fixed;
-  top: var(--navbar-alto);
-  left: 0;
-  bottom: 0;
-  width: 360px;
-  background: var(--superficie);
-  border-right: 1px solid var(--borde);
-  z-index: 500;
-  overflow-y: auto;
-  transform: translateX(-100%);
-  transition: transform 0.35s ease;
-}
 
-.panel-detalle:not(.hidden) { transform: translateX(0); }
+/* ========================================
+   PLANES PREMIUM
+======================================== */
 
-.panel-detalle__cerrar {
-  position: absolute;
-  top: 1rem; right: 1rem;
-  background: var(--superficie-2);
-  border: 1px solid var(--borde);
-  color: var(--texto-suave);
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--transicion);
-  cursor: pointer;
-  z-index: 1;
-}
-
-.panel-detalle__cerrar:hover { color: var(--texto); border-color: var(--acento); }
-
-.panel-detalle__imagen-wrap {
-  width: 100%;
-  height: 220px;
-  background: var(--superficie-2);
-  border-bottom: 1px solid var(--borde);
-}
-
-.panel-detalle__imagen-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--texto-suave);
-  font-size: 0.8rem;
-}
-
-.panel-detalle__imagen-placeholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.panel-detalle__contenido { padding: 1.5rem; }
-
-.panel-detalle__categoria {
-  font-size: 0.75rem;
-  color: var(--acento-hover);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.panel-detalle__nombre {
-  font-family: var(--fuente-display);
-  font-size: 1.3rem;
-  margin: 0.5rem 0;
-  color: var(--texto);
-}
-
-.panel-detalle__precio {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--acento-hover);
-  margin-bottom: 1rem;
-}
-
-.panel-detalle__descripcion {
-  font-size: 0.9rem;
-  color: var(--texto-suave);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-/* ── PANEL LATERAL DERECHO — carrito ── */
-.panel-carrito {
-  position: fixed;
-  top: var(--navbar-alto);
-  right: 0;
-  bottom: 0;
-  width: 320px;
-  background: var(--superficie);
-  border-left: 1px solid var(--borde);
-  z-index: 500;
-  display: flex;
-  flex-direction: column;
-  transform: translateX(100%);
-  transition: transform 0.35s ease;
-}
-
-.panel-carrito:not(.hidden) { transform: translateX(0); }
-
-.panel-carrito__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.2rem 1.5rem;
-  border-bottom: 1px solid var(--borde);
-}
-
-.panel-carrito__header h2 {
-  font-family: var(--fuente-display);
-  font-size: 1.1rem;
-}
-
-.panel-carrito__items {
-  flex: 1;
-  overflow-y: auto;
-  padding: 1rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.carrito-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  background: var(--superficie-2);
-  border: 1px solid var(--borde);
-  border-radius: var(--radio-sm);
-}
-
-.carrito-item__nombre {
-  flex: 1;
-  font-size: 0.85rem;
-  color: var(--texto);
-}
-
-.carrito-item__precio {
-  font-size: 0.85rem;
-  color: var(--acento-hover);
-  font-weight: 600;
-}
-
-.carrito-item__eliminar {
-  background: none;
-  border: none;
-  color: var(--texto-suave);
-  cursor: pointer;
-  font-size: 0.85rem;
-  padding: 0.2rem;
-  transition: color var(--transicion);
-}
-
-.carrito-item__eliminar:hover { color: var(--error); }
-
-.panel-carrito__footer {
-  padding: 1.2rem 1.5rem;
-  border-top: 1px solid var(--borde);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.carrito-total {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.carrito-vacio {
-  text-align: center;
-  color: var(--texto-suave);
-  font-size: 0.875rem;
-  padding: 2rem 0;
-}
-
-/* ── SECCIÓN CARTAS ── */
-.seccion-cartas { margin-top: 1rem; }
-
-.cartas-grid {
+.planes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  margin-top: 20px;
 }
 
-.carta-calc {
-  background: var(--superficie);
-  border: 1px solid var(--borde);
-  border-radius: var(--radio);
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.carta-calc h3 {
-  font-family: var(--fuente-display);
-  font-size: 1rem;
-  color: var(--texto);
-}
-
-.carta-calc__form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.input-fecha,
-.input-campo {
-  background: var(--superficie-2);
-  border: 1px solid var(--borde);
-  border-radius: var(--radio-sm);
-  color: var(--texto);
-  padding: 0.6rem 0.9rem;
-  font-size: 0.875rem;
-  width: 100%;
-  transition: border-color var(--transicion);
-}
-
-.input-fecha:focus,
-.input-campo:focus {
-  outline: none;
-  border-color: var(--acento);
-}
-
-.carta-resultado {
-  background: var(--superficie-2);
-  border: 1px solid var(--acento-suave);
-  border-radius: var(--radio-sm);
-  padding: 1rem;
-  margin-top: 0.5rem;
-}
-
-.carta-resultado__arcano {
-  font-family: var(--fuente-display);
-  font-size: 1rem;
-  color: var(--acento-hover);
-  margin-bottom: 0.4rem;
-}
-
-.carta-resultado__numero {
-  font-size: 0.75rem;
-  color: var(--texto-suave);
-  margin-bottom: 0.75rem;
-}
-
-.carta-resultado__desc {
-  font-size: 0.85rem;
-  color: var(--texto-suave);
-  line-height: 1.7;
-}
-
-.horoscopo-signo {
-  font-family: var(--fuente-display);
-  font-size: 1.1rem;
-  color: var(--acento-hover);
-  margin-bottom: 0.4rem;
-}
-
-.horoscopo-cargando {
-  font-size: 0.85rem;
-  color: var(--texto-suave);
-  font-style: italic;
-}
-
-/* ── MODAL ── */
-.modal {
-  position: fixed;
-  inset: 0;
-  z-index: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  background: rgba(0,0,0,0.7);
-}
-
-.modal.hidden { display: none; }
-
-.modal__caja {
-  background: var(--superficie);
-  border: 1px solid var(--borde);
-  border-radius: var(--radio);
-  padding: 2rem;
-  width: 100%;
-  max-width: 400px;
+.plan {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+
+  display: grid;
+  align-content: start;
+  gap: 13px;
+
+  padding: 23px;
+
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
 }
 
-.modal__cerrar {
-  position: absolute;
-  top: 1rem; right: 1rem;
-  background: none;
-  border: none;
+.plan--destacado {
+  border-color: var(--acento-suave);
+  box-shadow: 0 10px 30px rgba(123, 24, 120, 0.18);
+}
+
+.plan h3 {
+  font-family: var(--display);
+}
+
+.plan strong {
+  color: var(--acento-suave);
+  font-size: 1.35rem;
+}
+
+.plan p {
   color: var(--texto-suave);
-  font-size: 1rem;
-  cursor: pointer;
-  transition: color var(--transicion);
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
-.modal__cerrar:hover { color: var(--texto); }
 
-.modal__titulo {
-  font-family: var(--fuente-display);
-  font-size: 1.2rem;
+/* ========================================
+   CALCULADORAS
+======================================== */
+
+.calculadoras {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  margin-top: 20px;
+}
+
+.calculadora {
+  display: grid;
+  align-content: start;
+  gap: 13px;
+
+  padding: 23px;
+
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.calculadora h3 {
+  font-family: var(--display);
+}
+
+.calculadora p {
+  color: var(--texto-suave);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.calculadora input {
+  width: 100%;
+  min-height: 42px;
+
+  padding: 10px;
+
+  background: var(--superficie-2);
   color: var(--texto);
+
+  border: 1px solid var(--borde);
+  border-radius: 5px;
 }
 
-.modal__campo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+.resultado:not(:empty) {
+  padding: 12px;
+
+  background: var(--superficie-2);
+  border-left: 3px solid var(--acento-suave);
+
+  color: var(--texto);
+  font-size: 0.85rem;
+  line-height: 1.6;
 }
 
-.modal__campo label {
-  font-size: 0.8rem;
+
+/* ========================================
+   PANEL LATERAL DEL SERVICIO
+======================================== */
+
+.panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 90;
+
+  width: min(400px, 100%);
+
+  overflow-y: auto;
+
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+
+  transition: transform 0.3s ease;
+}
+
+.panel--izq {
+  left: 0;
+  transform: translateX(-105%);
+}
+
+.panel.abierto {
+  transform: translateX(0);
+}
+
+.panel > img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.panel__cuerpo {
+  display: grid;
+  gap: 15px;
+
+  padding: 24px;
+}
+
+.panel__cuerpo h2 {
+  font-family: var(--display);
+}
+
+.panel__cuerpo strong {
+  color: var(--acento-suave);
+  font-size: 1.4rem;
+}
+
+.panel__cuerpo p {
   color: var(--texto-suave);
+  line-height: 1.65;
 }
 
-.modal__pie {
-  font-size: 0.8rem;
-  color: var(--texto-suave);
-  text-align: center;
+.panel__cerrar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 38px;
+  height: 38px;
+
+  background: var(--superficie);
+  color: var(--texto);
+
+  border: 1px solid var(--borde);
+  border-radius: 50%;
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  .panel-detalle,
-  .panel-carrito {
-    width: 100%;
+.panel__cerrar:hover {
+  color: white;
+  border-color: var(--acento-suave);
+  background: var(--acento);
+}
+
+
+/* ========================================
+   PANTALLAS PEQUEÑAS
+======================================== */
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: 390px;
   }
 
-  .cartas-grid {
+  .hero__contenido {
+    padding: 50px 0;
+  }
+
+  .planes,
+  .calculadoras {
     grid-template-columns: 1fr;
   }
 
-  .bienvenida { min-height: 240px; padding: 2rem 1rem; }
-}
-
-/* ── PLANES PREMIUM ── */
-.seccion-planes .catalogo__header { margin-bottom: 1.5rem; }
-
-.planes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-
-.plan-card {
-  background: var(--superficie);
-  border: 1px solid var(--borde);
-  border-radius: var(--radio);
-  padding: 1.75rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  position: relative;
-  transition: all var(--transicion);
-}
-
-.plan-card:hover {
-  border-color: var(--acento);
-  box-shadow: var(--sombra-hover);
-}
-
-.plan-card--destacado {
-  border-color: var(--acento);
-  background: linear-gradient(160deg, var(--superficie) 60%, rgba(138,43,226,0.08));
-}
-
-.plan-card__badge {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-}
-
-.plan-card__header { text-align: center; }
-
-.plan-card__nombre {
-  font-family: var(--fuente-display);
-  font-size: 1.1rem;
-  color: var(--texto);
-  margin-bottom: 0.5rem;
-}
-
-.plan-card__precio {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: var(--acento-hover);
-  line-height: 1;
-}
-
-.plan-card__periodo {
-  font-size: 0.8rem;
-  color: var(--texto-suave);
-  margin-top: 0.25rem;
-}
-
-.plan-card__beneficios {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  flex: 1;
-}
-
-.plan-card__beneficios li {
-  font-size: 0.875rem;
-  color: var(--texto-suave);
-  padding: 0.4rem 0;
-  border-bottom: 1px solid var(--borde);
-}
-
-.plan-card__beneficios li:last-child { border-bottom: none; }
-
-@media (max-width: 768px) {
-  .planes-grid { grid-template-columns: 1fr; }
+  .tarjeta {
+    flex-basis: 220px;
+  }
 }
