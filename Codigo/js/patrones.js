@@ -11,22 +11,7 @@ const KEYS = {
 
 const IMG_DEFAULT =
   "../Recursos/patronesoterico.png";
-  
 
-const IMAGENES_CATEGORIA = {
-  lecturas: "imagenlectura.png",
-  astrologia: "imagenastrologia.png",
-  runas: "imagenrunas.png",
-  limpiezas: "imagenlimpiezas.png",
-  amuletos: "imagenamuletos.png"
-};
-const IMAGENES_CATEGORIA = {
-  lecturas: "imagenlectura.png",
-  astrologia: "imagenastrologia.png",
-  runas: "imagenrunas.png",
-  limpiezas: "imagenlimpiezas.png",
-  amuletos: "imagenamuletos.png"
-};
 const IMAGENES_CATEGORIA = {
   lecturas: "imagenlectura.png",
   astrologia: "imagenastrologia.png",
