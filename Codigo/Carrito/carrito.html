@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Carrito | Mi Espacio Esotérico
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="../css/global.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="carrito.css"
+  >
+</head>
+
+<body>
+
+  <nav class="navbar">
+
+    <a
+      class="navbar__logo"
+      href="../Principal/principal.html"
+    >
+      Mi Espacio
+      <span>Esotérico</span>
+    </a>
+
+    <div class="navbar__links">
+      <a href="../Principal/principal.html">
+        Inicio
+      </a>
+
+      <a href="../Chat/chat.html">
+        Chat
+      </a>
+
+      <a
+        class="activo"
+        href="carrito.html"
+      >
+        Carrito
+      </a>
+    </div>
+
+    <div class="navbar__acciones">
+      <a
+        class="btn btn--icono btn--secundario"
+        href="carrito.html"
+        aria-label="Carrito"
+        title="Carrito"
+      >
+        🛒
+
+        <span
+          class="contador hidden"
+          data-cart-count
+        ></span>
+      </a>
+    </div>
+
+  </nav>
+
+
+  <header class="pagina-header">
+    <div class="contenedor">
+      <p class="texto-suave">
+        Compra simulada
+      </p>
+
+      <h1 class="titulo">
+        Tu carrito
+      </h1>
+    </div>
+  </header>
+
+
+  <main class="contenedor carrito-layout">
+
+    <section
+      id="lista-carrito"
+      class="lista-carrito"
+      aria-label="Servicios del carrito"
+    >
+      <!-- JavaScript agregará los productos aquí -->
+    </section>
+
+
+    <aside class="resumen-carrito">
+
+      <h2>
+        Resumen
+      </h2>
+
+      <div class="resumen-carrito__fila">
+        <span>
+          Cantidad
+        </span>
+
+        <span id="cantidad-carrito">
+          0
+        </span>
+      </div>
+
+      <div class="resumen-carrito__fila resumen-carrito__total">
+        <span>
+          Total
+        </span>
+
+        <strong id="precio-total">
+          $0
+        </strong>
+      </div>
+
+      <button
+        id="finalizar-compra"
+        class="btn btn--primario btn--bloque"
+        type="button"
+      >
+        Finalizar compra
+      </button>
+
+      <a
+        class="btn btn--secundario btn--bloque"
+        href="../Principal/principal.html"
+      >
+        Seguir explorando
+      </a>
+
+      <p class="resumen-carrito__aviso">
+        Esta es una compra simulada.
+        No se realizará ningún cobro real.
+      </p>
+
+    </aside>
+
+  </main>
+
+
+  <!-- CONFIRMACIÓN DE COMPRA -->
+
+  <div
+    id="modal-compra"
+    class="modal hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="titulo-compra"
+  >
+    <div class="modal__caja">
+
+      <button
+        id="cerrar-modal-compra"
+        class="modal__cerrar"
+        type="button"
+        aria-label="Cerrar"
+      >
+        ✕
+      </button>
+
+      <h2
+        id="titulo-compra"
+        class="modal__titulo"
+      >
+        Compra registrada
+      </h2>
+
+      <p>
+        Tu solicitud fue registrada correctamente.
+        La administradora se pondrá en contacto contigo.
+      </p>
+
+      <button
+        id="volver-inicio"
+        class="btn btn--primario btn--bloque"
+        type="button"
+      >
+        Volver al inicio
+      </button>
+
+    </div>
+  </div>
+
+
+  <div id="toast-container"></div>
+
+
+  <script src="../js/patrones.js"></script>
+  <script src="carrito.js"></script>
+
+</body>
+</html>

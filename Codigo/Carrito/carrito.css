@@ -1,0 +1,232 @@
+/* ========================================
+   DISTRIBUCIÓN DEL CARRITO
+======================================== */
+
+.carrito-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 24px;
+
+  padding-top: 38px;
+  padding-bottom: 50px;
+}
+
+
+/* ========================================
+   LISTA DE PRODUCTOS
+======================================== */
+
+.lista-carrito {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+
+/* ========================================
+   PRODUCTO DEL CARRITO
+======================================== */
+
+.carrito-item {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 16px;
+
+  padding: 16px;
+
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.carrito-item__imagen {
+  width: 82px;
+  height: 72px;
+
+  object-fit: cover;
+
+  border-radius: 6px;
+}
+
+.carrito-item__informacion {
+  min-width: 0;
+}
+
+.carrito-item__nombre {
+  margin-bottom: 5px;
+
+  color: var(--texto);
+  font-size: 0.95rem;
+}
+
+.carrito-item__descripcion {
+  color: var(--texto-suave);
+  font-size: 0.8rem;
+}
+
+.carrito-item__precio {
+  color: var(--acento-suave);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.carrito-item__eliminar {
+  min-height: 38px;
+
+  padding: 0 12px;
+
+  background: transparent;
+  color: #ffaaaa;
+
+  border: 1px solid #713b43;
+  border-radius: 6px;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.carrito-item__eliminar:hover {
+  color: white;
+  border-color: var(--error);
+  background: var(--error);
+}
+
+
+/* ========================================
+   CARRITO VACÍO
+======================================== */
+
+.carrito-vacio {
+  padding: 55px 20px;
+
+  text-align: center;
+
+  background: var(--superficie);
+  border: 1px dashed var(--borde);
+  border-radius: var(--radio);
+}
+
+.carrito-vacio h2 {
+  margin-bottom: 8px;
+
+  font-family: var(--display);
+  font-size: 1.2rem;
+}
+
+.carrito-vacio p {
+  margin-bottom: 22px;
+
+  color: var(--texto-suave);
+}
+
+
+/* ========================================
+   RESUMEN DEL CARRITO
+======================================== */
+
+.resumen-carrito {
+  position: sticky;
+  top: calc(var(--nav) + 20px);
+
+  display: grid;
+  align-content: start;
+  gap: 18px;
+
+  height: max-content;
+  padding: 23px;
+
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.resumen-carrito h2 {
+  font-family: var(--display);
+  font-size: 1.2rem;
+}
+
+.resumen-carrito__fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--texto-suave);
+}
+
+.resumen-carrito__total {
+  padding-top: 16px;
+
+  border-top: 1px solid var(--borde);
+
+  color: var(--texto);
+}
+
+.resumen-carrito__total strong {
+  color: var(--acento-suave);
+  font-size: 1.3rem;
+}
+
+.resumen-carrito__aviso {
+  color: var(--texto-suave);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+
+/* ========================================
+   BOTÓN DESHABILITADO
+======================================== */
+
+#finalizar-compra:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+
+/* ========================================
+   MODAL DE COMPRA
+======================================== */
+
+#modal-compra .modal__caja p {
+  color: var(--texto-suave);
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   TABLETS Y MÓVILES
+======================================== */
+
+@media (max-width: 800px) {
+  .carrito-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .resumen-carrito {
+    position: static;
+  }
+}
+
+@media (max-width: 580px) {
+  .carrito-item {
+    grid-template-columns: 64px minmax(0, 1fr);
+  }
+
+  .carrito-item__imagen {
+    width: 64px;
+    height: 64px;
+  }
+
+  .carrito-item__precio {
+    grid-column: 2;
+  }
+
+  .carrito-item__eliminar {
+    grid-column: 2;
+    width: max-content;
+  }
+}
